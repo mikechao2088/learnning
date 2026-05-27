@@ -1,374 +1,332 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>國小五下數學期末衝刺題庫 (康軒版200題隨機版)</title>
+    <title data-id="th-modified">綱心諠草 ‧ 愷佑學堂 | 陪伴成長的國小教育筆記</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --success-color: #2ecc71;
-            --danger-color: #e74c3c;
-            --bg-color: #ecf0f1;
-        }
         body {
-            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 20px;
-            color: #333;
+            font-family: 'Noto Sans TC', 'Quicksand', sans-serif;
+            background-color: #FAF9F5; /* 暖米白色 */
         }
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-        h1 {
-            text-align: center;
-            color: var(--primary-color);
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 25px;
-        }
-        .quiz-status {
-            background: #e8f4fd;
-            border-left: 4px solid var(--accent-color);
-            padding: 12px;
-            border-radius: 4px;
-            margin-bottom: 25px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-        }
-        .question-card {
-            background: #fcfcfc;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-        .question-card:hover {
-            border-color: var(--accent-color);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .question-tag {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 3px 8px;
-            font-size: 12px;
-            border-radius: 3px;
-            margin-bottom: 10px;
-        }
-        .question-text {
-            font-size: 17px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-        .options-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        @media (max-width: 600px) {
-            .options-list { grid-template-columns: 1fr; }
-        }
-        .option-item {
-            display: flex;
-            align-items: center;
-            padding: 10px 15px;
-            background: white;
-            border: 1px solid #dcdde1;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .option-item:hover {
-            background: #f5f6fa;
-        }
-        .option-item input {
-            margin-right: 10px;
-            transform: scale(1.2);
-        }
-        .btn-container {
-            margin-top: 30px;
-        }
-        button {
-            width: 100%;
-            padding: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-submit { background: var(--success-color); }
-        .btn-submit:hover { background: #27ae60; }
-        .btn-reload { background: var(--accent-color); }
-        .btn-reload:hover { background: #2980b9; }
-        #result-panel {
-            margin-top: 25px;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-            display: none;
-        }
-        .score-pass { background: #d4edda; color: #155724; }
-        .score-fail { background: #f8d7da; color: #721c24; }
-        .feedback {
-            font-size: 14px;
-            margin-top: 10px;
-            font-weight: normal;
+        .grass-pattern {
+            background-image: radial-gradient(#2c5e43 0.5px, transparent 0.5px), radial-gradient(#2c5e43 0.5px, #faf9f5 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.03;
         }
     </style>
+
+    <meta property="og:title" content="綱心諠草 ‧ 愷佑學堂 | 陪伴成長的國小教育筆記" data-id="th-modified">
+    <meta name="description" content="陪孩子慢慢長大｜國小五年級教育隨筆與互動式練習題庫" data-id="th-modified">
+    <meta property="og:description" content="陪孩子慢慢長大｜國小五年級教育隨筆與互動式練習題庫" data-id="th-modified">
+    <meta property="og:image" content="https://tiiny.host/assets/logo-purple-bg.png" data-id="th-modified">
+    <meta property="og:url" content="https://mikechao2088.tiiny.site/" data-id="th-modified">
+    <meta property="og:type" content="website" data-id="th-modified">
 </head>
-<body>
+<body class="text-slate-700 min-h-screen flex flex-col antialiased">
 
-<div class="container">
-    <h1>康軒版國小五年級數學期末總複習</h1>
-    <div class="subtitle">系統已內建 200 題全真題庫 ‧ 每次隨機抽取 20 題</div>
-    
-    <div class="quiz-status">
-        <span>考試科目：數學 (五下期末範圍)</span>
-        <span>題數：20 題 (每題 5 分)</span>
-    </div>
+    <!-- 背景草地微點花紋 -->
+    <div class="fixed inset-0 grass-pattern pointer-events-none z-0"></div>
 
-    <form id="quiz-form">
-        <div id="questions-pool"></div>
-        <div class="btn-container">
-            <button type="button" id="action-btn" class="btn-submit" onclick="gradeQuiz()">確認交卷讀卡</button>
+    <nav class="sticky top-0 z-50 bg-[#FAF9F5]/90 backdrop-blur-md border-b border-emerald-100/50 transition-all duration-300">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2 group">
+                <span class="text-2xl group-hover:rotate-12 transition-transform duration-300">🌱</span>
+                <span class="font-bold text-xl text-emerald-800 tracking-wide">綱心諠草 ‧ 愷佑學堂</span>
+            </a>
+            <div class="flex items-center space-x-4 text-sm font-medium">
+                <a href="#about" class="text-slate-600 hover:text-emerald-700 transition">關於網站</a>
+                <a href="#quizzes" class="text-slate-600 hover:text-emerald-700 transition">期末題庫</a>
+                <a href="#resources" class="text-slate-600 hover:text-emerald-700 transition">學習資源</a>
+            </div>
         </div>
-    </form>
+    </nav>
 
-    <div id="result-panel"></div>
-</div>
-
-<script>
-    // 200題專業題庫自動化生成引擎 (嚴格對應康軒五下期末核心指標)
-    function generateTwoHundredQuestions() {
-        const bank = [];
-        let id = 1;
-
-        // 1. 分數的乘法 (共 35 題)
-        for(let i = 2; i <= 36; i++) {
-            let base = i * 2;
-            let num = 3;
-            let den = 4;
-            let ans = (base * num) / den;
-            let qText = `一條繩子長 ${base} 公尺，剪下其中的 ${num}/${den} ，請問剪下的繩子長多少公尺？`;
-            if (Number.isInteger(ans)) {
-                bank.push({
-                    id: id++, tag: "分數的乘法", q: qText,
-                    o: [`${ans}公尺`, `${ans - 1}公尺`, `${ans + 2}公尺`, `${ans + 1.5}公尺`], a: 0
-                });
-            } else {
-                let ansStr = (base * num) + "/" + den;
-                bank.push({
-                    id: id++, tag: "分數的乘法", q: `一桶油重 ${base} 公斤，媽媽炒菜用了 ${num}/${den} 桶，共是用掉多少公斤的油？`,
-                    o: [`${base - 1}公斤`, `${ansStr}公斤`, `${base + 1}公斤`, `${num}/${den}公斤`], a: 1
-                });
-            }
-        }
-
-        // 2. 長方體與正方體表面積 (共 35 題)
-        for(let i = 3; i <= 37; i++) {
-            let side = i;
-            let areaCube = side * side * 6;
-            bank.push({
-                id: id++, tag: "長方體與正方體", q: `一個正方體的每條邊長都是 ${side} 公分，請算出這個正方體的表面積是多少平方公分？`,
-                o: [`${side * side}平方公分`, `${side * 12}平方公分`, `${areaCube}平方公分`, `${areaCube - 20}平方公分`], a: 2
-            });
-            let w = i, l = i + 2, h = i + i;
-            let areaBox = (w*l + l*h + w*h) * 2;
-            bank.push({
-                id: id++, tag: "長方體與正方體", q: `有一個長方體禮盒，長 ${l} 公分、寬 ${w} 公分、高 ${h} 公分，它的表面積是多少平方公分？`,
-                o: [`${areaBox}平方公分`, `${w*l*h}平方公分`, `${areaBox + 15}平方公分`, `${(w+l+h)*2}平方公分`], a: 0
-            });
-        }
-
-        // 3. 體積與容積換算、容器厚度問題 (共 35 題)
-        for(let i = 5; i <= 39; i++) {
-            let vol_cm3 = i * 1000;
-            let liters = i;
-            bank.push({
-                id: id++, tag: "體積與容積", q: `有一個裝滿水的水箱，水的體積是 ${vol_cm3} 立方公分，請問這相當於是多少公升的水？`,
-                o: [`${liters * 10}公升`, `${liters}公升`, `${liters / 10}公升`, `${liters * 100}公升`], a: 1
-            });
-            let outer_side = i + 4; 
-            let inner_side = outer_side - 2; // 厚度1公分，兩邊減2
-            let inner_vol = inner_side * inner_side * inner_side;
-            bank.push({
-                id: id++, tag: "體積與容積", q: `一個無蓋的正方體木盒，外面邊長是 ${outer_side} 公分，木板厚度是 1 公分。這個木盒內部的容積是多少立方公分？`,
-                o: [`${outer_side * outer_side * outer_side}立方公分`, `${inner_side * inner_side * outer_side}立方公分`, `${inner_vol}立方公分`, `${inner_vol - 50}立方公分`], a: 2
-            });
-        }
-
-        // 4. 比率與百分率 (共 35 題)
-        for(let i = 1; i <= 35; i++) {
-            let total = 20 + i;
-            let hit = i;
-            let rate = (hit / total * 100).toFixed(1);
-            bank.push({
-                id: id++, tag: "比率與百分率", q: `籃球隊員練投，總共投了 ${total} 球，進了 ${hit} 球，請問這場練習的進球率（用百分率表示，四捨五入到小數點後第一位）大約是多少？`,
-                o: [`${rate}%`, `${(hit/total).toFixed(2)}%`, `${(total/hit).toFixed(1)}%`, `50%`], a: 0
-            });
-            let price = 500 + (i * 20);
-            let salePrice = price * 0.8;
-            bank.push({
-                id: id++, tag: "比率與百分率", q: `定價 ${price} 元的球鞋，期末考大特價打八折（20% off）販售，請問買這雙鞋要付多少元？`,
-                o: [`${price - 80}元`, `${price * 0.2}元`, `${salePrice}元`, `${price - 20}元`], a: 2
-            });
-        }
-
-        // 5. 未知數 x 的列式與應用題 (共 30 題)
-        for(let i = 10; i <= 39; i++) {
-            let cost = i;
-            let pay = 100;
-            let change = pay - cost;
-            bank.push({
-                id: id++, tag: "未知數x", q: `妹妹買了一本隨身筆記本花了 x 元，付給店員一包 100 元鈔票，找回 ${change} 元。依題意列出含有未知數的算式，何者正確？`,
-                o: [`x - 100 = ${change}`, `100 - x = ${change}`, `x + 100 = ${change}`, `100 + x = ${change}`], a: 1
-            });
-            let each = i;
-            let total_apples = each * 6;
-            bank.push({
-                id: id++, tag: "未知數x", q: `有一箱蘋果平分裝成 6 盒，每盒有 ${each} 顆。若設整箱蘋果有 x 顆，算式應記為：`,
-                o: [`x ÷ 6 = ${each}`, `x × 6 = ${each}`, `6 ÷ x = ${each}`, `x + 6 = ${each}`], a: 0
-            });
-        }
-
-        // 6. 生活中的大單位 (共 30 題)
-        for(let i = 1; i <= 30; i++) {
-            let tons = i * 2;
-            let kg = tons * 1000;
-            bank.push({
-                id: id++, tag: "生活中的大單位", q: `有一輛載滿砂石的砂石車，砂石重達 ${tons} 公噸，請問這等於多少公斤？`,
-                o: [`${tons * 100}公斤`, `${kg}公斤`, `${tons * 10000}公斤`, `${tons / 1000}公斤`], a: 1
-            });
-            let ha = i;
-            let m2 = ha * 10000;
-            bank.push({
-                id: id++, tag: "生活中的大單位", q: `大雄家的開心農場土地面積是 ${ha} 公頃，請問這塊土地是多少平方公尺？`,
-                o: [`${ha * 100}平方公尺`, `${ha * 1000}平方公尺`, `${m2}平方公尺`, `${ha / 100}平方公尺`], a: 2
-            });
-        }
-
-        // 確保精確達到並填滿至少 200 題
-        while(bank.length < 200) {
-            bank.push({
-                id: id++, tag: "綜合複習", q: `一個底面為正方形的長方體，底面邊長 5 公分，高 10 公分，體積是多少立方公分？`,
-                o: ["50立方公分", "100立方公分", "250立方公分", "125立方公分"], a: 2
-            });
-        }
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-8 z-10 relative">
         
-        return bank.slice(0, 200);
-    }
+        <header class="text-center py-12 md:py-16 relative">
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-emerald-100 rounded-full filter blur-xl opacity-60"></div>
+            <div class="inline-flex items-center justify-center p-3 bg-emerald-50 rounded-full border border-emerald-100/80 mb-4 shadow-sm">
+                <span class="text-3xl animate-bounce">🌱</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-emerald-900 tracking-tight mb-3">綱心諠草 ‧ 愷佑學堂</h1>
+            <p class="text-base md:text-lg text-emerald-700/80 font-light">
+                陪孩子慢慢長大 <span class="mx-2 text-emerald-300">|</span> 國小教育隨筆與資源分享
+            </p>
+        </header>
 
-    const totalBank = generateTwoHundredQuestions();
-    let currentQuiz = [];
+        <div class="bg-white/70 border border-emerald-100/60 rounded-2xl p-6 shadow-sm mb-12 hover:shadow-md transition-all duration-300 relative overflow-hidden backdrop-blur-sm">
+            <div class="absolute top-0 left-0 w-1.5 h-full bg-emerald-600"></div>
+            <div class="flex items-start space-x-4">
+                <div class="text-emerald-600 text-2xl mt-1">
+                    <i class="fa-solid fa-quote-left"></i>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-emerald-800/60 mb-1">今日教育金句</h4>
+                    <p id="quote-text" class="text-slate-700 font-medium leading-relaxed">「教育不是灌滿一桶水，而是點燃一把火。」在這裡，記錄關於陪伴、學習與五年級成長轉折點的點滴。</p>
+                    <span id="quote-author" class="block text-right text-xs text-slate-400 mt-2 font-light">— 葉慈 (W.B. Yeats)</span>
+                </div>
+            </div>
+        </div>
 
-    // 隨機抽 20 題並渲染畫面
-    function renderNewQuiz() {
-        // Fisher-Yates 洗牌演算法
-        const shuffled = [...totalBank];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-        
-        // 取得前 20 題
-        currentQuiz = shuffled.slice(0, 20);
-        
-        const poolContainer = document.getElementById('questions-pool');
-        poolContainer.innerHTML = '';
+        <section id="about" class="mb-14 scroll-mt-20">
+            <div class="flex items-center space-x-2 mb-6">
+                <span class="text-emerald-700 text-lg"><i class="fa-solid fa-heart-pulse"></i></span>
+                <h2 class="text-2xl font-bold text-emerald-900">關於這個網站</h2>
+            </div>
+            <div class="bg-emerald-50/40 rounded-2xl p-6 border border-emerald-100/40 leading-relaxed text-slate-600 space-y-4">
+                <p>你好！我是這個空間的紀錄者。我相信每個孩子都有自己的花期。隨著孩子步入高年級，課業與生活都迎來了全新的挑戰，這裡是我用來整理實用學習資源與教養心得的小天地。</p>
+                <p class="text-sm text-slate-500">
+                    <i class="fa-solid fa-seedling text-emerald-600 mr-1"></i> 我們不追求走得最快，只願陪孩子走一段最踏實、最溫暖的路。
+                </p>
+            </div>
+        </section>
 
-        currentQuiz.forEach((item, index) => {
-            const card = document.createElement('div');
-            card.className = 'question-card';
+        <section id="quizzes" class="mb-14 scroll-mt-20">
+            <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center space-x-2">
+                    <span class="text-amber-600 text-lg"><i class="fa-solid fa-pen-to-square"></i></span>
+                    <h2 class="text-2xl font-bold text-emerald-900">📝 五年級下學期 期末考題庫練習</h2>
+                </div>
+                <span class="text-xs bg-emerald-50 text-emerald-800 px-2.5 py-1 rounded-full font-medium border border-emerald-100">
+                    模擬線上測驗
+                </span>
+            </div>
+            <p class="text-slate-500 text-sm mb-6">點擊下方科目，即可進行互動式測驗；可點選小勾勾記錄複習進度：</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- 數學 -->
+                <div class="group relative bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-blue-400"></div>
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs bg-blue-50 text-blue-700 px-2.5 py-0.5 rounded-full font-semibold border border-blue-100">康軒版</span>
+                            <!-- 互動複習勾選 -->
+                            <button onclick="toggleProgress('math')" id="btn-math" class="text-slate-300 hover:text-emerald-600 transition duration-200">
+                                <i class="fa-solid fa-circle-check text-xl"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 group-hover:text-blue-600 transition mb-2">數學科練習</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-4">包含分數乘法、表面積、容積等核心高難度考點解析與模擬練習。</p>
+                    </div>
+                    <a href="康軒版數學五年級下學期期末考題庫.html" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700">
+                        進入模擬練習 <i class="fa-solid fa-arrow-right-long ml-1.5 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- 自然 -->
+                <div class="group relative bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-teal-500"></div>
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs bg-teal-50 text-teal-700 px-2.5 py-0.5 rounded-full font-semibold border border-teal-100">翰林版</span>
+                            <button onclick="toggleProgress('science')" id="btn-science" class="text-slate-300 hover:text-emerald-600 transition duration-200">
+                                <i class="fa-solid fa-circle-check text-xl"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 group-hover:text-teal-600 transition mb-2">自然科練習</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-4">針對期末考重點實驗、植物與動物、天氣變化等概念進行隨機抽題。</p>
+                    </div>
+                    <a href="翰林版自然五年級下學期期末考題庫.html" class="inline-flex items-center text-sm font-semibold text-teal-600 hover:text-teal-700">
+                        進入模擬練習 <i class="fa-solid fa-arrow-right-long ml-1.5 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- 社會 -->
+                <div class="group relative bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-amber-500"></div>
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs bg-amber-50 text-amber-800 px-2.5 py-0.5 rounded-full font-semibold border border-amber-100">南一版</span>
+                            <button onclick="toggleProgress('social')" id="btn-social" class="text-slate-300 hover:text-emerald-600 transition duration-200">
+                                <i class="fa-solid fa-circle-check text-xl"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 group-hover:text-amber-600 transition mb-2">社會科練習</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-4">精選社會科臺灣歷史、地理與社會變遷重要章節，加強邏輯與整合判斷。</p>
+                    </div>
+                    <a href="南一版社會五年級下學期期末考題庫.html" class="inline-flex items-center text-sm font-semibold text-amber-600 hover:text-amber-700">
+                        進入模擬練習 <i class="fa-solid fa-arrow-right-long ml-1.5 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- 國語 -->
+                <div class="group relative bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-rose-400"></div>
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs bg-rose-50 text-rose-700 px-2.5 py-0.5 rounded-full font-semibold border border-rose-100">翰林版</span>
+                            <button onclick="toggleProgress('chinese')" id="btn-chinese" class="text-slate-300 hover:text-emerald-600 transition duration-200">
+                                <i class="fa-solid fa-circle-check text-xl"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 group-hover:text-rose-600 transition mb-2">國語科練習</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-4">包含高年級生字字音字形辨析、成語運用、課文主旨與閱讀理解測驗。</p>
+                    </div>
+                    <a href="翰林版國語五年級下學期期末考題庫.html" class="inline-flex items-center text-sm font-semibold text-rose-600 hover:text-rose-700">
+                        進入模擬練習 <i class="fa-solid fa-arrow-right-long ml-1.5 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="mb-14 scroll-mt-20">
+            <div class="flex items-center space-x-2 mb-3">
+                <span class="text-emerald-700 text-lg"><i class="fa-solid fa-book-open"></i></span>
+                <h2 class="text-2xl font-bold text-emerald-900">📚 五年級精選官方資源平台</h2>
+            </div>
+            <p class="text-slate-500 text-sm mb-6">精心彙整四大適合國小五年級複習與自主學習的優質評量資源，點擊卡片即可安全開啟新分頁：</p>
             
-            let optionsHTML = '';
-            item.o.forEach((optionText, optIdx) => {
-                optionsHTML += `
-                    <label class="option-item">
-                        <input type="radio" name="question_${index}" value="${optIdx}">
-                        ${["(1)", "(2)", "(3)", "(4)"][optIdx]} ${optionText}
-                    </label>
-                `;
-            });
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- 連結 1 -->
+                <a href="https://v3.rcb.moe.edu.tw/" target="_blank" class="group bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex items-start space-x-4">
+                    <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-laptop-code text-lg"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-base font-bold text-slate-800 group-hover:text-emerald-800 transition mb-1 flex items-center">
+                            01. 教育部數位資源
+                            <i class="fa-solid fa-up-right-from-square text-xs ml-1.5 opacity-50"></i>
+                        </h3>
+                        <p class="text-slate-500 text-xs leading-relaxed">推廣數位多元學習與自由軟體資源，提供國小高年級課後自主延伸學習教材。</p>
+                    </div>
+                </a>
 
-            card.innerHTML = `
-                <span class="question-tag">${item.tag}</span>
-                <div class="question-text">第 ${index + 1} 題：${item.q}</div>
-                <div class="options-list">${optionsHTML}</div>
-            `;
-            poolContainer.appendChild(card);
-        });
-    }
+                <!-- 連結 2 -->
+                <a href="https://www.ntpc.edu.tw/" target="_blank" class="group bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex items-start space-x-4">
+                    <div class="p-3 bg-sky-50 text-sky-600 rounded-xl group-hover:bg-sky-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-school text-lg"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-base font-bold text-slate-800 group-hover:text-emerald-800 transition mb-1 flex items-center">
+                            02. 新北市教育資源網
+                            <i class="fa-solid fa-up-right-from-square text-xs ml-1.5 opacity-50"></i>
+                        </h3>
+                        <p class="text-slate-500 text-xs leading-relaxed">整合親師生平台、線上作業、電子聯絡簿，提供豐富的適性數位評量資訊與窗口。</p>
+                    </div>
+                </a>
 
-    // 計算成績與讀卡回饋
-    function gradeQuiz() {
-        let score = 0;
-        let unanswered = 0;
+                <!-- 連結 3 -->
+                <a href="https://www.ner.gov.tw/" target="_blank" class="group bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex items-start space-x-4">
+                    <div class="p-3 bg-emerald-50 text-emerald-600 rounded-xl group-hover:bg-emerald-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-microphone-lines text-lg"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-base font-bold text-slate-800 group-hover:text-emerald-800 transition mb-1 flex items-center">
+                            03. 教育廣播電台
+                            <i class="fa-solid fa-up-right-from-square text-xs ml-1.5 opacity-50"></i>
+                        </h3>
+                        <p class="text-slate-500 text-xs leading-relaxed">提供豐富的兒童節目與聲創資源，幫助高年級擴展語文與社會人文科普素養。</p>
+                    </div>
+                </a>
 
-        currentQuiz.forEach((item, index) => {
-            const selected = document.querySelector(`input[name="question_${index}"]:checked`);
-            if (!selected) {
-                unanswered++;
-            } else if (parseInt(selected.value) === item.a) {
-                score += 5;
+                <!-- 連結 4 -->
+                <a href="https://www.naer.edu.tw/" target="_blank" class="group bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex items-start space-x-4">
+                    <div class="p-3 bg-rose-50 text-rose-600 rounded-xl group-hover:bg-rose-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-graduation-cap text-lg"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-base font-bold text-slate-800 group-hover:text-emerald-800 transition mb-1 flex items-center">
+                            04. 國家教育研究院
+                            <i class="fa-solid fa-up-right-from-square text-xs ml-1.5 opacity-50"></i>
+                        </h3>
+                        <p class="text-slate-500 text-xs leading-relaxed">幫助親師了解最新核心素養大綱與教科書審定標準，精準掌握大考出題的大方向。</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-emerald-900 text-emerald-100 py-10 mt-auto border-t-4 border-emerald-800 relative z-10">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="text-3xl block mb-2">🌱</span>
+            <p class="font-medium text-lg text-emerald-200 tracking-wide mb-1">綱心諠草 ‧ 愷佑學堂</p>
+            <p class="text-emerald-300/70 text-sm mb-6">「知足常樂，陪孩子走一段溫暖的路。」</p>
+            <div class="border-t border-emerald-800/80 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-emerald-400/80 space-y-3 md:space-y-0">
+                <p>© 2026 個人教育隨筆空間 | 綱心諠草 ‧ 愷佑學堂. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <span class="hover:text-emerald-200 transition cursor-pointer">隱私政策</span>
+                    <span>•</span>
+                    <span class="hover:text-emerald-200 transition cursor-pointer">使用條款</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 金句庫
+        const quotes = [
+            {
+                text: "「教育不是灌滿一桶水，而是點燃一把火。」在這裡，記錄關於陪伴、學習與五年級成長轉折點的點滴。",
+                author: "葉慈 (W.B. Yeats)"
+            },
+            {
+                text: "「孩子就像一株慢熟的花朵，請耐心地陪著他，靜待他最燦爛的花期。」",
+                author: "綱心諠草 ‧ 愷佑學堂溫馨叮嚀"
+            },
+            {
+                text: "「陪伴最好的禮物不是隨時都在，而是當你人在他身邊時，給予他最專注、最溫暖的凝視。」",
+                author: "親職教育隨手筆記"
+            },
+            {
+                text: "「高年級的挑戰不只是分數的提升，更是孩子自主學會思考與面對挫折的重要轉折點。」",
+                author: "教育心理學專欄"
             }
-        });
+        ];
 
-        if (unanswered > 0) {
-            if (!confirm(`你還有 ${unanswered} 題沒有寫喔！確定要現在交卷讀卡嗎？`)) {
-                return;
-            }
-        }
+        // 頁面加載時執行
+        window.onload = function() {
+            // 隨機切換金句
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote-text').innerText = quotes[randomIndex].text;
+            document.getElementById('quote-author').innerText = `— ${quotes[randomIndex].author}`;
 
-        const resultPanel = document.getElementById('result-panel');
-        resultPanel.style.display = 'block';
-        
-        if (score >= 60) {
-            resultPanel.className = 'score-pass';
-            resultPanel.innerHTML = `恭喜及格！你的得分是：${score} 分 <div class="feedback">觀念掌握得不錯，繼續保持！</div>`;
-        } else {
-            resultPanel.className = 'score-fail';
-            resultPanel.innerHTML = `再接再厲！你的得分是：${score} 分 <div class="feedback">沒關係，再重新挑戰一次，多練習分數就會進步！</div>`;
-        }
-
-        // 修改按鈕功能，使其可以一鍵重新抽題
-        const actionBtn = document.getElementById('action-btn');
-        actionBtn.innerText = '挑戰下一套隨機20題';
-        actionBtn.className = 'btn-reload';
-        actionBtn.onclick = function() {
-            resultPanel.style.display = 'none';
-            window.scrollTo(0, 0);
-            renderNewQuiz();
-            actionBtn.innerText = '確認交卷讀卡';
-            actionBtn.className = 'btn-submit';
-            actionBtn.onclick = gradeQuiz;
+            // 初始化進度勾選按鈕狀態
+            initProgress();
         };
 
-        window.scrollTo(0, document.body.scrollHeight);
-    }
+        // 記錄學習進度狀態到 LocalStorage
+        function toggleProgress(subject) {
+            const btn = document.getElementById(`btn-${subject}`);
+            let completedList = JSON.parse(localStorage.getItem('completedQuizzes') || "[]");
 
-    // 網頁載入時立刻初始化考卷
-    window.onload = renderNewQuiz;
-</script>
+            if (completedList.includes(subject)) {
+                // 如果已經完成，取消勾選
+                completedList = completedList.filter(item => item !== subject);
+                btn.className = "text-slate-300 hover:text-emerald-600 transition duration-200";
+            } else {
+                // 若未完成，標記為完成
+                completedList.push(subject);
+                btn.className = "text-emerald-600 scale-110 transition duration-200";
+            }
+
+            localStorage.setItem('completedQuizzes', JSON.stringify(completedList));
+        }
+
+        // 初始化進度
+        function initProgress() {
+            const completedList = JSON.parse(localStorage.getItem('completedQuizzes') || "[]");
+            const subjects = ['math', 'science', 'social', 'chinese'];
+            
+            subjects.forEach(subject => {
+                const btn = document.getElementById(`btn-${subject}`);
+                if (completedList.includes(subject)) {
+                    btn.className = "text-emerald-600 scale-100 transition duration-200";
+                } else {
+                    btn.className = "text-slate-300 hover:text-emerald-600 transition duration-200";
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
